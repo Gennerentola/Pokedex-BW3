@@ -1,0 +1,50 @@
+<section class="profile">
+    <div class="px-5">
+        <div class="squad border border-2 rounded border-warning m-2 mx-xl-auto mb-5 mt-5 text-warning py-3 px-4">
+            <h2 class="text-center display-2 fw-semibold">Profilo utente</h2>
+            <form id="profilo" class="d-flex justify-content-center">
+                <div>
+                    <div>
+                        <label class="pe-2 fw-semibold" for="name">Nome: </label>
+                        <input class="bg-transparent border-0 text-white" type="text" readonly value={{user?.user?.name}} id="name" #name>
+                        <span class="btn btn-modifica text-light"><i class="fa-solid fa-pen" #nameEditBtn (click)="changeUsername()"></i></span>
+                    </div>
+                    <div>
+                        <label class="pe-2 fw-semibold" for="email">Email: </label>
+                        <input class="bg-transparent border-0 text-white" type="email" readonly value={{user?.user?.email}} id="email" #email>
+                        <span class="btn btn-modifica text-light"><i class="fa-solid fa-pen" #emailEditBtn (click)="changeUserEmail()"></i></span>
+                    </div>
+                    <div>
+                        <label class="pe-2 fw-semibold" for="password">Password: </label>
+                        <input class="bg-transparent border-0 text-white" value="********" id="password" readonly>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="squad border border-2 rounded border-warning m-2 mx-xl-auto mb-5">
+            <div>
+                <h2 class="text-center text-warning display-2 fw-semibold">La mia squadra</h2>
+            </div>
+            <div class="d-flex flex-row justify-content-between profile-container align-items-center mx-auto">
+                <div class="d-flex flex-row flex-wrap p-3 justify-content-center row m-xl-auto">
+                    <div class="squad-member bg-black border border-warning rounded m-1 m-lg-2 d-flex flex-column justify-content-center align-items-center" *ngFor="let teamMember of pokemonTeam">
+                        <app-team-card class="d-flex justify-content-center flex-column align-items-center" [teamMember]="teamMember"></app-team-card>
+                    </div>
+                    <div class="squad-member bg-black border border-warning rounded m-1 m-lg-2 d-flex flex-column justify-content-center align-items-center" *ngIf="pokemonTeam.length < 6"></div>
+                    <div class="squad-member bg-black border border-warning rounded m-1 m-lg-2 d-flex flex-column justify-content-center align-items-center" *ngIf="pokemonTeam.length < 5"></div>
+                    <div class="squad-member bg-black border border-warning rounded m-1 m-lg-2 d-flex flex-column justify-content-center align-items-center" *ngIf="pokemonTeam.length < 4"></div>
+                    <div class="squad-member bg-black border border-warning rounded m-1 m-lg-2 d-flex flex-column justify-content-center align-items-center" *ngIf="pokemonTeam.length < 3"></div>
+                    <div class="squad-member bg-black border border-warning rounded m-1 m-lg-2 d-flex flex-column justify-content-center align-items-center" *ngIf="pokemonTeam.length < 2"></div>
+                    <div class="squad-member bg-black border border-warning rounded m-1 m-lg-2 d-flex flex-column justify-content-center align-items-center" *ngIf="pokemonTeam.length < 1"></div>
+
+
+                </div>
+                <div class="d-flex justify-content-end">
+                    <img class="trainer m-3" src="../../../assets/img/ash.png" alt="ash">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>

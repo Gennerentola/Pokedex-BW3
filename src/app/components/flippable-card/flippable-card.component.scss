@@ -1,0 +1,217 @@
+.postcard-container {
+    width: 300px;
+    height: 420px;
+    display: block;
+    position: relative;
+    perspective: 800px;
+    border-radius: 4px;
+}
+
+.postcard, .front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 6px;
+}
+
+.postcard {
+    background-color: transparent;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+.postcard .front, .postcard .back {
+    backface-visibility: hidden;
+    color: #fff;
+    display: grid;
+    place-items: center;
+}
+
+.back, .flipped {
+    transform: rotateY(540deg);
+}
+
+.arrow-icon, .add {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    opacity: 1;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.add {
+    right: 37px;
+}
+
+.card-top {
+    height: 90px;
+}
+
+.starry {
+    background-image: url(https://assets.codepen.io/13471/sparkles.gif);
+    width: 90%;
+    height: 50%;
+}
+
+.sprite {
+    position:relative;
+}
+
+.front, .back {
+    background-size: 100%;
+    background-position: center;
+    box-shadow: -13px -13px 13px -15px var(--color1), 13px 13px 13px -15px var(--color2), 0 0 4px 2px #ffffff80, 0 35px 25px -15px #0000004d;
+    overflow: hidden;
+    transform-origin: center;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.front:before, .front:after, .back:before, .back:after {
+    content: "";
+    opacity: 0.5;
+    mix-blend-mode: screen;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-repeat: no-repeat;
+}
+
+.front:before, .back:before {
+    background-position: 50% 50%;
+    background-size: 300% 300%;
+    animation: holoGradient 15s ease infinite both;
+    background-image: linear-gradient( 115deg, transparent 0%, var(--color1) 30%, transparent 47.5%, transparent 52.5%, var(--color2) 70%, transparent 100% );
+    mix-blend-mode: color-dodge;
+    opacity: 0.8;
+    filter: brightness(0.75) contrast(1.5);
+}
+
+.front:after, .back:after {
+    opacity: 0.05;
+    background-image: url("https://assets.codepen.io/13471/sparkles.gif");
+    background-position: center;
+    background-size: 160%;
+    z-index: 2;
+/*  animation: holoSparkle 15s ease infinite both;*/
+    filter: brightness(2.25);
+    transition: filter 0.5s ease;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.front.active:before, .back.active:after {
+    opacity: 1;
+    transition: none;
+    background-image: linear-gradient( 115deg, transparent 15%, var(--color1) 46%, var(--color2) 54%, transparent 85% );
+    opacity: 0.8;
+    filter: brightness(0.75) contrast(1.5);
+}
+
+.front.active:after {
+    filter: brightness(1.2);
+}
+
+.description {
+    height:100%;
+}
+
+@keyframes holoSparkle {
+    0%, 5%,
+    100% { opacity: 0.2; background-position: 50% 50%; }
+    33% { opacity: 1; background-position: 40% 40%; filter: brightness(1); }
+    45% { opacity: 0.4; }
+    66% { opacity: 1; background-position: 60% 60%; filter: brightness(1); }
+}
+
+@keyframes holoGradient {
+    0%,
+    100% { opacity: 0.1; background-position: 50% 50%; }
+    33% { opacity: 0.88; background-position: 100% 100%; }
+    66% { opacity: 0.88; background-position: 0% 0%; }
+}
+
+.grass {
+    --color1: rgb(178, 255, 54);
+    --color2: rgb(90, 255, 112);
+}
+
+.fire {
+    --color1: rgb(255, 148, 54);
+    --color2: rgb(255, 90, 144);
+}
+
+.water {
+    --color1: rgb(54, 148, 255);
+    --color2: rgb(74, 129, 248);
+}
+
+.normal {
+    --color1: rgb(247, 242, 222);
+    --color2: rgb(172, 164, 166);
+}
+
+.bug {
+    --color1: rgb(218, 255, 54);
+    --color2: rgb(170, 255, 90);
+}
+
+.poison {
+    --color1: rgb(215, 54, 255);
+    --color2: rgb(167, 90, 255);
+}
+
+.electric {
+    --color1: rgb(255, 235, 54);
+    --color2: rgb(253, 255, 148);
+}
+
+.ground {
+    --color1: rgb(153, 105, 63);
+    --color2: rgb(99, 60, 28);
+}
+
+.fairy {
+    --color1: rgb(248, 167, 217);
+    --color2: rgb(253, 146, 182);
+}
+
+.fighting {
+    --color1: rgb(250, 146, 120);
+    --color2: rgb(172, 93, 93);
+}
+
+.psychic {
+    --color1: rgb(252, 119, 252);
+    --color2: rgb(250, 103, 152);
+}
+
+.rock {
+    --color1: rgb(97, 86, 76);
+    --color2: rgb(131, 130, 113);
+}
+
+.ghost {
+    --color1: rgb(114, 54, 255);
+    --color2: rgb(101, 90, 255);
+}
+
+.ice {
+    --color1: rgb(164, 249, 255);
+    --color2: rgb(121, 249, 253);
+}
+
+.dragon {
+    --color1: rgb(98, 54, 255);
+    --color2: rgb(90, 93, 255);
+}

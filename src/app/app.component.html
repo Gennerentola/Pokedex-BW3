@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg bg-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="active"
+        ><img src="./../assets/img/pikachu.png" alt="" routerLink="home"
+      /></a>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active text-light mx-4 fs-5"
+            aria-current="page"
+            routerLink="pokedex"
+            >Pokédex</a
+          >
+        </li>
+      </ul>
+
+      <div class="pokemon-team">
+        <div class="d-flex flex-row flex-wrap justify-content-center m-xl-auto">
+             <!-- <div class="squad-member bg-light rounded d-flex flex-row justify-content-center align-items-center mx-2" *ngFor="let teamMember of pokemonTeam">
+                <img class="p-2" src={{teamMember.pokemon.image.hires}}>
+            </div> -->
+        </div>
+      </div>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span
+          ><img id="pokeball" src="./../assets/img/pokeball.png" alt=""
+        /></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="d-flex justify-content-end w-100" *ngIf="loggato">
+          <ul id="dropDown" class="d-flex my-0">
+            <li>
+              <a class="nav-link active text-light fs-5" [routerLink]="['/profile']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Profilo</a>
+            </li>
+            <li>
+              <h5 class="text-light mt-1 px-3">Ciao {{ name }}</h5>
+            </li>
+            <li>
+              <a class="btn nav-link text-danger fs-5 px-2" (click)="logout()">Esci</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="d-flex justify-content-end w-100" *ngIf="!loggato">
+          <a
+            class="nav-link text-light mx-4 my-2 fs-5"
+            [routerLink]="['/registrati']"
+            routerLinkActive="active"
+            >Registrati</a
+          >
+          <a
+            class="nav-link text-light mx-4 my-2 fs-5"
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+            >Login</a
+          >
+       </div>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>

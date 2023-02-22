@@ -1,0 +1,8 @@
+<div class="d-flex justify-content-center flex-column align-items-center" *ngIf="visible==true">
+    <img class="w-75 p-2" src={{teamMember.pokemon.image.hires}}>
+    <div class="d-flex justify-content-center">
+        <span (click)="changePokemonName(teamMember)"><i class="fa-solid fa-pen" #editBtn></i></span>
+        <input class="squad-member-name bg-transparent border-0 text-center text-white w-50" value="{{teamMember.pokemon.name.english}}" readonly #pokemonName>
+        <span (click)="delPokemonTeam()"><i class="fa-solid fa-trash text-danger"></i></span>
+    </div>
+</div>

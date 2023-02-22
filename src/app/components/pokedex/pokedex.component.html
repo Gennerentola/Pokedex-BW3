@@ -1,0 +1,44 @@
+<section class="w-100">
+    <div id="searchbar" class="container-fluid text-center py-2 mb-1 bg-dark">
+        <form (ngSubmit)="submit()" #form="ngForm" class="d-flex container">
+          <input class="form-control rounded ps-2" ngModel name="name" #name="ngModel" type="text"
+            placeholder="Search for your favorite pokemon...">
+          <button type="submit" class="btn btn-primary"
+            class="btn rounded-2 bg-warning ms-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+    <!-- Placeholder caricamento -->
+    <div class="d-flex justify-content-center" *ngIf="this.attivo == false">
+        <img src="../../../assets/img/simple_pokeball.gif" alt="loading_placeholder">
+    </div>
+    <div class="filters container-fluid d-flex flex-wrap justify-content-evenly align-items-center">
+        <a (click)="allPokemon()"><img src="../../../assets/img/pokedex.png" alt="pokedex"></a>
+        <a (click)="type('Fire')"><img src="../../../assets/img/fire.png" alt="fire_type"></a>
+        <a (click)="type('Water')"><img src="../../../assets/img/water.png" alt="water_type"></a>
+        <a (click)="type('Grass')"><img src="../../../assets/img/grass.png" alt="grass_type"></a>
+        <a (click)="type('Poison')"><img src="../../../assets/img/poison.png" alt="poison_type"></a>
+        <a (click)="type('Normal')"><img src="../../../assets/img/normal.png" alt="normal_type"></a>
+        <a (click)="type('Fighting')"><img src="../../../assets/img/fighting.png" alt="fighting_type"></a>
+        <a (click)="type('Psychic')"><img src="../../../assets/img/psychic.png" alt="psychic_type"></a>
+        <a (click)="type('Flying')"><img src="../../../assets/img/flying.png" alt="flying_type"></a>
+        <a (click)="type('Electric')"><img src="../../../assets/img/electric.png" alt="electric_type"></a>
+        <a (click)="type('Dragon')"><img src="../../../assets/img/dragon.png" alt="dragon_type"></a>
+        <a (click)="type('Ground')"><img src="../../../assets/img/ground.png" alt="ground_type"></a>
+        <a (click)="type('Ghost')"><img src="../../../assets/img/ghost.png" alt="ghost_type"></a>
+        <a (click)="type('Bug')"><img src="../../../assets/img/bug.png" alt="bug_type"></a>
+        <a (click)="type('Ice')"><img src="../../../assets/img/ice.png" alt="ice_type"></a>
+        <a (click)="type('Fairy')"><img src="../../../assets/img/fairy.png" alt="fairy_type"></a>
+        <a (click)="type('Rock')"><img src="../../../assets/img/rock.png" alt="rock_type"></a>
+    </div>
+</section>
+<!-- Template Carte -->
+<section  class="d-flex flex-row flex-wrap justify-content-evenly mt-2 m-5 w-100" *ngIf="this.attivo == true">
+    <app-flippable-card *ngFor="let p of pokemon" [pokemon]="p" [user]="user" > <!-- [pokemonTeam]="pokemonTeam" -->
+        <flippable-card-front>
+        </flippable-card-front>
+        <flippable-card-back>
+        </flippable-card-back>
+    </app-flippable-card>
+</section>
+
+

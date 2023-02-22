@@ -1,0 +1,85 @@
+.squad-member {
+    width:128px;
+    aspect-ratio: 4/3;
+    padding:0;
+    &-name {
+        font-size: 12px;
+        margin:2px;
+    }
+}
+
+.trainer {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    max-height:35vh;
+}
+
+.squad-member-name{
+    border: none;
+    text-align: center;
+    background-color: transparent;
+    width: 60px;
+}
+
+#profilo {
+    width:400px;
+    margin-inline:auto;
+}
+
+@media screen and (min-width:768px) {
+    .squad-member {
+        width:150px;
+    }
+    .squad-member-name{
+        width: 140px;
+    }
+}
+
+@media screen and (min-width:992px) {
+    .squad-member {
+        width:185px;
+        &-name {
+            font-size: 16px;
+            font-weight: 500;
+            margin:3px;
+        }
+    }
+
+    .trainer {
+        max-height: 56vh;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .squad-member {
+        width:235px;
+        &-name {
+            font-size: 20px;
+        }
+    }
+
+    .trainer {
+        max-height: 56vh;
+    }
+}
+
+@media screen and (min-width:1400px) {
+    .squad {
+        max-width: 1400px;
+        &-member {
+            width:328px;
+        }
+    }
+}
+
+#profilo label {
+    width: 80px;
+}
+
+#profilo div {
+    width: fit-content;
+}
+
+.profile {
+    margin-top: 8rem;
+}

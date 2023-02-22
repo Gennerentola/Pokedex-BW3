@@ -1,0 +1,82 @@
+#sfondo {
+    background-image: url(https://assets.codepen.io/13471/sparkles.gif);
+}
+
+#thecard {
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+}
+
+#thefront {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.grass {
+    background-color: #198754;
+}
+
+.fire {
+    background-color: #fd7e14;
+}
+
+.water {
+    background-color: #4791ff;
+}
+
+.normal {
+    background-color: #adb5bd;
+}
+
+.bug {
+    background-color: #8cb735;
+}
+
+.poison {
+    background-color: #6f42c1;
+}
+
+.electric {
+    background-color: #ffd34d;
+}
+
+.ground {
+    background-color: #685210;
+}
+
+.fairy {
+    background-color: #ff9fcf;
+}
+
+.fighting {
+    background-color: #c75a00;
+}
+
+.psychic {
+    background-color: #d63384;
+}
+
+.rock {
+    background-color: #6a6551;
+}
+
+.ghost {
+    background-color: #2c007d;
+}
+
+.ice {
+    background-color: #97c1ff;
+}
+
+.dragon {
+    background-color: #6610f2;
+}

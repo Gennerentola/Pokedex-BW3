@@ -1,0 +1,80 @@
+<div class="postcard-container m-3">
+    <div [ngClass]="turned ? 'flipped' : ''" class="postcard" #postcard>
+        <div class="front align-items-center d-flex flex-column" [ngClass]="{
+        'grass': pokemon.type[0] == 'Grass',
+        'fire': pokemon.type[0] == 'Fire',
+        'water': pokemon.type[0] == 'Water',
+        'normal': pokemon.type[0] == 'Normal',
+        'bug': pokemon.type[0] == 'Bug',
+        'poison': pokemon.type[0] == 'Poison',
+        'electric': pokemon.type[0] == 'Electric',
+        'ground': pokemon.type[0] == 'Ground',
+        'fairy': pokemon.type[0] == 'Fairy',
+        'fighting': pokemon.type[0] == 'Fighting',
+        'psychic': pokemon.type[0] == 'Psychic',
+        'rock': pokemon.type[0] == 'Rock',
+        'ghost': pokemon.type[0] == 'Ghost',
+        'text-light': pokemon.type[0] == 'Ghost',
+        'ice': pokemon.type[0] == 'Ice',
+        'dragon': pokemon.type[0] == 'Dragon'
+      }">
+            <ng-content select="flippable-card-front"></ng-content>
+            <div class="card-top text-center d-flex justify-content-between w-100 p-3">
+                <div>
+                    <h5 class=" m-1 card-title text-left fs-4"><b>{{pokemon.name.english}}</b></h5>
+                    <p class="mb-0 ms-1 fs-6 float-start">{{pokemon.name.japanese}}</p>
+                </div>
+                <b class="fs-4">n. {{pokemon.id}}</b>
+            </div>
+            <div class="border border-warning p-5 text-center starry d-flex align-items-center">
+                <img class="sprite w-100" src="{{pokemon.image.hires}}" alt="pokemon_hires">
+            </div>
+            <div class="px-3 rounded mt-1 fs-5 w-100">
+                <p class="m-0"><b>Species: </b><i>{{pokemon.species}}</i></p>
+                <p class="m-0"><b>Weight: </b><i>{{pokemon.profile.weight}}</i></p>
+                <p class="m-0"><b>Height: </b><i>{{pokemon.profile.height}}</i></p>
+
+            </div>
+            <div class="buttons w-25">
+                <div class="add border-0" #pokeball>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" preserveAspectRatio="xMidYMid meet"
+                        viewBox="2 2 20 20" (click)="choose(pokemon)">
+                        <path
+                            d="M12 2a10 10 0 0 1 10 10a10 10 0 0 1-10 10A10 10 0 0 1 2 12A10 10 0 0 1 12 2m0 2c-4.08 0-7.45 3.05-7.94 7h4.07c.44-1.73 2.01-3 3.87-3c1.86 0 3.43 1.27 3.87 3h4.07c-.49-3.95-3.86-7-7.94-7m0 16c4.08 0 7.45-3.05 7.94-7h-4.07c-.44 1.73-2.01 3-3.87 3c-1.86 0-3.43-1.27-3.87-3H4.06c.49 3.95 3.86 7 7.94 7m0-10a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2Z" fill="white" />
+                    </svg>
+                </div>
+                <div class="arrow-icon" (click)="turnOver()">
+                    <i class="fa fa-circle-arrow-right"></i>
+                </div>
+            </div>
+
+        </div>
+        <div class="back" [ngClass]="{
+        'grass': pokemon.type[0] == 'Grass',
+        'fire': pokemon.type[0] == 'Fire',
+        'water': pokemon.type[0] == 'Water',
+        'normal': pokemon.type[0] == 'Normal',
+        'bug': pokemon.type[0] == 'Bug',
+        'poison': pokemon.type[0] == 'Poison',
+        'electric': pokemon.type[0] == 'Electric',
+        'ground': pokemon.type[0] == 'Ground',
+        'fairy': pokemon.type[0] == 'Fairy',
+        'fighting': pokemon.type[0] == 'Fighting',
+        'psychic': pokemon.type[0] == 'Psychic',
+        'rock': pokemon.type[0] == 'Rock',
+        'ghost': pokemon.type[0] == 'Ghost',
+        'text-light': pokemon.type[0] == 'Ghost',
+        'ice': pokemon.type[0] == 'Ice',
+        'dragon': pokemon.type[0] == 'Dragon'
+      }">
+            <div class="description">
+                <p class="m-0 p-3 w-100"><b>Description: </b><i>{{pokemon.description}}</i></p>
+            </div>
+            <ng-content select="flippable-card-back" class="d-none"></ng-content>
+
+            <div class="arrow-icon" (click)="turnOver()">
+                <i class="fa fa-circle-arrow-right"></i>
+            </div>
+        </div>
+    </div>
+</div>

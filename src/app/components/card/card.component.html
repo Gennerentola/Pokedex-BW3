@@ -1,0 +1,92 @@
+<div class="card-body bg-warning rounded p-2">
+    <div id="thecard" class="rounded p-1" [ngClass]="{
+        'grass': pokemon.type[0] == 'Grass',
+        'fire': pokemon.type[0] == 'Fire',
+        'water': pokemon.type[0] == 'Water',
+        'normal': pokemon.type[0] == 'Normal',
+        'bug': pokemon.type[0] == 'Bug',
+        'poison': pokemon.type[0] == 'Poison',
+        'electric': pokemon.type[0] == 'Electric',
+        'ground': pokemon.type[0] == 'Ground',
+        'fairy': pokemon.type[0] == 'Fairy',
+        'fighting': pokemon.type[0] == 'Fighting',
+        'psychic': pokemon.type[0] == 'Psychic',
+        'rock': pokemon.type[0] == 'Rock',
+        'ghost': pokemon.type[0] == 'Ghost',
+        'text-light': pokemon.type[0] == 'Ghost',
+        'ice': pokemon.type[0] == 'Ice',
+        'dragon': pokemon.type[0] == 'Dragon'
+      }">
+        <div id="thefront">
+            <div class="text-center d-flex justify-content-between">
+                <div>
+                    <h5 class=" m-1 card-title text-center fs-4"><b>{{pokemon.name.english}}</b></h5>
+                    <p class="mb-0 ms-1 fs-6 float-start">{{pokemon.name.japanese}}</p>
+                </div>
+                <b class="fs-4 me-2">n. {{pokemon.id}}</b>
+            </div>
+            <div id="sfondo" class="border border-warning p-5 text-center m-2">
+                <img class="w-100" src="{{pokemon.image.hires}}" alt="pokemon_hires">
+            </div>
+            <div class="ms-1 rounded mt-1 fs-5">
+                <p class="m-0"><b>Species:</b></p>
+                <p class="m-0"><i>{{pokemon.species}}</i></p>
+                <p class="m-0"><b>Weight: </b><i>{{pokemon.profile.weight}}</i></p>
+                <p class="m-0"><b>Height: </b><i>{{pokemon.profile.height}}</i></p>
+                <div class="float-end me-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px"
+                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" (click)="choose(pokemon)">
+                        <path
+                            d="M12 2a10 10 0 0 1 10 10a10 10 0 0 1-10 10A10 10 0 0 1 2 12A10 10 0 0 1 12 2m0 2c-4.08 0-7.45 3.05-7.94 7h4.07c.44-1.73 2.01-3 3.87-3c1.86 0 3.43 1.27 3.87 3h4.07c-.49-3.95-3.86-7-7.94-7m0 16c4.08 0 7.45-3.05 7.94-7h-4.07c-.44 1.73-2.01 3-3.87 3c-1.86 0-3.43-1.27-3.87-3H4.06c.49 3.95 3.86 7 7.94 7m0-10a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2Z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!--<div id="theback" class="text-light d-flex flex-column justify-content-around">
+            <div class="d-flex justify-content-around align-items-center">
+                <p><b>Type:</b> {{pokemon.type[0]}}<span *ngIf="pokemon.type.length == 2">/{{pokemon.type[1]}}</span></p>
+                <img src="{{pokemon.image.sprite}}" alt="sprite_pokemon">
+            </div>
+            <div class="m-1 text-start">
+                <p><b>Description:</b></p>
+                <p>{{pokemon.description}}</p>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+<!-- Modale dettaglio pkmn -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" [ngClass]="{
+        'grass': pokemon.type[0] == 'Grass',
+        'fire': pokemon.type[0] == 'Fire',
+        'water': pokemon.type[0] == 'Water',
+        'normal': pokemon.type[0] == 'Normal',
+        'bug': pokemon.type[0] == 'Bug',
+        'poison': pokemon.type[0] == 'Poison',
+        'electric': pokemon.type[0] == 'Electric',
+        'ground': pokemon.type[0] == 'Ground',
+        'fairy': pokemon.type[0] == 'Fairy',
+        'fighting': pokemon.type[0] == 'Fighting',
+        'psychic': pokemon.type[0] == 'Psychic',
+        'rock': pokemon.type[0] == 'Rock',
+        'ghost': pokemon.type[0] == 'Ghost',
+        'text-light': pokemon.type[0] == 'Ghost',
+        'ice': pokemon.type[0] == 'Ice',
+        'dragon': pokemon.type[0] == 'Dragon'
+      }">
+            <!-- <div class="modal-header">
+                <h5 class="modal-title fs-5" id="exampleModalLabel">{{pokemon.name.english}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Add to your team</button>
+            </div> -->
+        </div>
+    </div>
+</div>
